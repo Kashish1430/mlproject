@@ -26,7 +26,6 @@ class DataTransformation:
             categorical_columns = [
                 "label",
             ]
-
             num_pipeline= Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="median")),

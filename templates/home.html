@@ -1,0 +1,43 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Student Exam Performance Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Year</label>
+            <input class="form-control" type="number" name="year" placeholder="Enter the year" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Month</label>
+            <input class="form-control" type="number" name="month" placeholder="Enter the month" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Toxicity</label>
+            <input class="form-control" type="number" name="toxicity" placeholder="Enter the toxicity" step="0.01" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Full Date</label>
+            <input class="form-control" type="text" name="Fulldate" placeholder="Enter the full date" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Label</label>
+            <select class="form-control" name="label" required>
+                <option class="placeholder" selected disabled value="">Select Label</option>
+                <option value="target">Target</option>
+                <option value="below target">Below Target</option>
+                <option value="control">Control</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict" required />
+        </div>
+    </form>
+    <h2>
+       THE prediction is {{results}}
+    </h2>
+   <body>
+</html>

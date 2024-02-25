@@ -50,6 +50,7 @@ class ModelTrainer:
             logging.info('Declaring models and their parameters')
             model_report:dict=evaluate_models(X_train=x_train,y_train=y_train,X_test=x_test,y_test=y_test,
                                              models=models,param=params)
+            
             logging.info('Model Evaluation has finished')
             
             best_model_score = sorted(model_report.values())[-1]
@@ -58,6 +59,7 @@ class ModelTrainer:
             if best_model_score < 0.6:
                 raise CustomException("No best model found")
             
+            best_model.fit(x_train, y_train)
             logging.info('Got the best model')
             save_object(file_path = self.model_trainer_config.model_trainer_path,
                         obj = best_model)
