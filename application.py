@@ -32,5 +32,5 @@ def predict_datapoint():
         results = pred_pipe.predict(df)
         return render_template('home.html', results=np.round(results[0],2))
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
     
